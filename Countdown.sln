@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.0.0
+MinimumVisualStudioVersion = 10.0.0.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Countdown", "src\Countdown\Countdown.csproj", "{96C88789-4A19-469B-BDF6-7E93D2645FD7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Countdown.Tests", "src\Countdown.Tests\Countdown.Tests.csproj", "{F6D2F546-DF8D-490C-8840-CE9B5EDF9855}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{96C88789-4A19-469B-BDF6-7E93D2645FD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96C88789-4A19-469B-BDF6-7E93D2645FD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96C88789-4A19-469B-BDF6-7E93D2645FD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96C88789-4A19-469B-BDF6-7E93D2645FD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6D2F546-DF8D-490C-8840-CE9B5EDF9855}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6D2F546-DF8D-490C-8840-CE9B5EDF9855}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6D2F546-DF8D-490C-8840-CE9B5EDF9855}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6D2F546-DF8D-490C-8840-CE9B5EDF9855}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
