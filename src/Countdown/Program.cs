@@ -8,6 +8,13 @@ namespace Countdown
 	{
 		static void Main(string[] args)
 		{
+			if (args.Length != 1)
+			{
+				Console.WriteLine("Usage: ./countdown {time}");
+				Console.WriteLine("e.g. ./countdown 16:30");
+				return;
+			}
+
 			Func<DateTime> now = () => DateTime.Now;
 
 			var parser = new TimeParser(now);
