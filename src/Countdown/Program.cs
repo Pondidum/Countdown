@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using System.Threading;
 
@@ -6,6 +7,8 @@ namespace Countdown
 {
 	class Program
 	{
+		private const string OutputFile = "./countdown.txt";
+
 		static void Main(string[] args)
 		{
 			if (args.Length != 1)
@@ -36,14 +39,18 @@ namespace Countdown
 
 			while ((remaining = runTo.Subtract(now())) > TimeSpan.Zero)
 			{
+				var time = $"{remaining.Minutes:00}:{remaining.Seconds:00}";
+
 				Console.SetCursorPosition(x, y);
-				Console.WriteLine($"{remaining.Minutes:00}:{remaining.Seconds:00}            ");
+				Console.WriteLine(time + "            ");
+				File.WriteAllText(OutputFile, time);
 
 				Thread.Sleep(300);
 			}
 
 			Console.SetCursorPosition(x, y);
 			Console.WriteLine("Stream starting soon...       ");
+			File.WriteAllText(OutputFile, "Stream starting soon...");
 		}
 	}
 }
