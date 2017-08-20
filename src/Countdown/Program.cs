@@ -1,14 +1,13 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Threading;
 
 namespace Countdown
 {
 	class Program
 	{
-		private const string OutputFile = "./countdown.txt";
-
 		static void Main(string[] args)
 		{
 			if (args.Length != 1)
@@ -33,24 +32,32 @@ namespace Countdown
 			Console.WriteLine($"{runTo:t} Local Time");
 			Console.WriteLine($"{runTo.ToUniversalTime():t} UTC");
 
-			var x = Console.CursorLeft;
-			var y = Console.CursorTop;
+			var outputFile = Path.Combine(
+				Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location),
+				"countdown.txt");
+
+			Console.WriteLine("");
+			Console.WriteLine($"Writing to: {outputFile}");
+			Console.WriteLine("");
+
 			TimeSpan remaining;
+			var lastTime = string.Empty;
 
 			while ((remaining = runTo.Subtract(now())) > TimeSpan.Zero)
 			{
 				var time = $"{remaining.Minutes:00}:{remaining.Seconds:00}";
 
-				Console.SetCursorPosition(x, y);
-				Console.WriteLine(time + "            ");
-				File.WriteAllText(OutputFile, time);
+				if (time != lastTime)
+				{
+					File.WriteAllText(outputFile, time);
+					lastTime = time;
+				}
 
-				Thread.Sleep(300);
+				Thread.Sleep(200);
 			}
 
-			Console.SetCursorPosition(x, y);
-			Console.WriteLine("Stream starting soon...       ");
-			File.WriteAllText(OutputFile, "Stream starting soon...");
+			Console.WriteLine("Done.");
+			File.WriteAllText(outputFile, "Stream starting soon...");
 		}
 	}
 }
